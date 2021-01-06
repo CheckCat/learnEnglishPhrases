@@ -4,3 +4,42 @@
   text-decoration: none;
   list-style: none;
 }
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.cards-list {
+  width: 99.99%;
+  overflow: hidden;
+}
+
+.cards-list ul {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  flex-wrap: nowrap;
+  transition: all 0.7s ease;
+  font-size: 25px;
+  font-family: sans-serif;
+}
+
+.cards-list__card{
+ 
+  box-sizing: border-box;
+  flex: 0 0 33.33%;
+  min-height: 250px;
+  border: 1px solid black;
+  padding: 30px;
+  background-color: red;
+}
+
+.cards-list__card:not(:first-child) {
+  border-left: none;
+}
