@@ -1,45 +1,51 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Card } from '../components/Card'
-import { remove } from '../redux/actions';
+import { add, edit, flip, remove } from '../redux/actions';
 
-function CardsList({cards, deleteCard}) {
+const CardsList = ({cardList, addCard, editCard, deleteCard, flipCard}) => {
 
-  const moveSlider = ev => {
-    const selectedCard = ev.target;
-    deleteCard(+selectedCard.dataset.index);
-    // const slider = selectedCard.offsetParent;
-    // const width = selectedCard.offsetWidth;
-    // const index = selectedCard.dataset.index - 1;
+  const moveSlider = ({target}) => {
+    const slider = target.offsetParent;
+    const width = target.offsetWidth;
+    const index = target.dataset.index - 1;
 
-    // slider.style.right = index * width + "px";
-    // const prev = Array.from(slider.children).find(item => item.classList.contains('active'));
-    // if(prev) {
-    //   prev.classList.remove('active');
-    // }
-    // selectedCard.classList.add('active');
+    slider.style.right = index * width + "px";
+    const prev = Array.from(slider.children).find(item => item.classList.contains('active'));
+    if(prev) {
+      prev.classList.remove('active');
+    }
+    target.classList.add('active');
   }
-  
+
+  useEffect(()=>{
+    document.querySelector('ul').children[1].classList.add('active');
+  }, [])
+
+  const toFlipCard = ({target}) => {
+    if(target.classList.contains('active')) {
+      flipCard(+target.dataset.index);
+    }
+  }
+
   return(
     <div className="container cards-list">
-      <ul onClick={moveSlider}>
-        {cards.map((item, index) => <Card index={index} key={index} props={item}/>)}
+      <ul style={{right: 0}} onClick={moveSlider}>
+        {cardList.map(({ru, en, isFliped}, index) => <Card key={index} value={isFliped ? en:ru} index={index} toFlipCard={toFlipCard}/>)}
       </ul>
     </div>
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    cards: state
-  }
-}
+const mapStateToProps = props => ({
+    cardList: props
+})
 
-function mapDispatchToProps(dispatch) {
-  return {
-    deleteCard: bindActionCreators(remove, dispatch)
-  }
+const mapDispatchToProps = {
+    addCard: add,
+    editCard: edit,
+    deleteCard: remove,
+    flipCard: flip
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardsList);

@@ -1,6 +1,7 @@
-import { ADD, EDIT, REMOVE } from "./types";
+import data from '../data.json';
+import { ADD, EDIT, REMOVE, FLIP } from "./types";
 
-export function rootReducer(state, action) {
+export const rootReducer = (state = data, action) => {
     const arr = [...state];
     switch (action.type) {
         case(ADD):
@@ -9,8 +10,10 @@ export function rootReducer(state, action) {
             arr[action.indexOfPrevElem] = action.newElem;
             return arr;
         case(REMOVE):
-            arr.splice(action.indexOfRemoveElem, 1);
+            arr.splice(action.indexOfRemovedElem, 1);
             return arr;
+        case(FLIP):
+            return arr.map((item, index) => index === action.indexOfFlipedCard ? {...item, isFliped: !item.isFliped} : item);
         default: return state;
     }
 }

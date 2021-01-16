@@ -1,9 +1,6 @@
-import './App.css';
 import CardsList from './containers/CardsList';
 
- 
-
-function App() {
+export const App = () => {
   return (
     <>
       <CardsList/>
@@ -11,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+

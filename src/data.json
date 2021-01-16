@@ -1,38 +1,47 @@
 [
     {
         "ru": "Все круто 1",
-        "en": "So cool 1"
+        "en": "So cool 1",
+        "isFliped": false
     }, 
     {
         "ru": "Все круто 2",
-        "en": "So cool 2"
+        "en": "So cool 2",
+        "isFliped": false
     }, 
     {
         "ru": "Все круто 3",
-        "en": "So cool 3"
+        "en": "So cool 3",
+        "isFliped": false
     }, 
     {
         "ru": "Все круто 4",
-        "en": "So cool 4"
+        "en": "So cool 4",
+        "isFliped": false
     }, 
     {
         "ru": "Все круто 5",
-        "en": "So cool 5"
+        "en": "So cool 5",
+        "isFliped": false
     }, 
     {
         "ru": "Все круто 6",
-        "en": "So cool 6"
+        "en": "So cool 6",
+        "isFliped": false
     }, 
     {
         "ru": "Все круто 7",
-        "en": "So cool 7"
+        "en": "So cool 7",
+        "isFliped": false
     }, 
     {
         "ru": "Все круто 8",
-        "en": "So cool 8"
+        "en": "So cool 8",
+        "isFliped": false
     }, 
     {
         "ru": "Все круто 9",
-        "en": "So cool 9"
+        "en": "So cool 9",
+        "isFliped": false
     }
 ]
