@@ -5,6 +5,10 @@
   list-style: none;
 }
 
+body {
+  background-color: black;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -16,7 +20,7 @@
 }
 
 .cards-list {
-  width: 99.99%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -33,11 +37,19 @@
 .cards-list__card{
  
   box-sizing: border-box;
-  flex: 0 0 33.33%;
-  min-height: 250px;
-  border: 1px solid black;
+  flex: 0 0 20%;
+  min-height: 190px;
   padding: 30px;
-  background-color: red;
+  background-color: white;
+  font-size: 15px;
+  font-family: "PT Sans", sans-serif;
+  text-align: center;
+  color: #353535;
+}
+
+.cards-list__card:nth-child(2n){
+  background-color: #79DEC6;
+  color: white;
 }
 
 .cards-list__card:not(:first-child) {
