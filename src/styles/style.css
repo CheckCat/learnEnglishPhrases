@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "PT Sans";
+  src: url(font/PTSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(font/Roboto-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,17 +21,59 @@ body {
 
 #root {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 130px;
 }
 
-.container {
-  max-width: 1200px;
+.live-search {
+  position: relative;
+  box-sizing: border-box;
+  width: 782px;
+  height: 35px;
+  padding: 12px 23px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  color: #9f9f9f;
+}
+
+.toggle-edit-mode {
+  box-sizing: border-box;
+  width: 208px;
+  height: 35px;
+  padding: 9px 34px;
+  border-radius: 17px;
+  border: none;
+  outline: none;
+  background-color: #2682D7;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  cursor: pointer;
+}
+
+.toggle-edit-mode:not(.pressed):hover {
+  background-color: #135C9F;
+}
+
+.pressed {
+  background-color: #595959;
+}
+
+.pressed:hover {
+  background-color: #3b3b3b;
 }
 
 .cards-list {
   width: 100%;
   overflow: hidden;
+  margin-top: 120px;
 }
 
 .cards-list ul {
@@ -29,13 +81,14 @@ body {
   justify-content: flex-start;
   position: relative;
   flex-wrap: nowrap;
-  transition: all 0.7s ease;
+  margin-bottom: 100px;
   font-size: 25px;
   font-family: sans-serif;
+  transition: all 0.7s ease;
 }
 
 .cards-list__card{
- 
+  position: relative;
   box-sizing: border-box;
   flex: 0 0 20%;
   min-height: 190px;
@@ -45,6 +98,11 @@ body {
   font-family: "PT Sans", sans-serif;
   text-align: center;
   color: #353535;
+  cursor: pointer;
+}
+
+.cards-list__card:not(:first-child) {
+  border-left: none;
 }
 
 .cards-list__card:nth-child(2n){
@@ -52,6 +110,162 @@ body {
   color: white;
 }
 
-.cards-list__card:not(:first-child) {
-  border-left: none;
+.pressed+.cards-list .cards-list__card, .cards-list__card.active {
+  cursor: default;
+}
+
+.edit-button {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  width: 19px;
+  height: 19px;
+  background-image: url(./images/edit-button-black.png);
+  cursor: pointer;
+}
+
+.cards-list__card:nth-child(2n) .edit-button {
+  background-image: url(./images/edit-button-white.png);
+}
+
+.delete-button {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-image: url(./images/delete-button.png);
+  cursor: pointer;
+}
+
+.add-button {
+  box-sizing: border-box;
+  width: 208px;
+  height: 40px;
+  margin-top: 50px;
+  padding: 9px 34px;
+  border-radius: 17px;
+  border: none;
+  outline: none;
+  background-color: #2682D7;
+  font-size: 12px;
+  font-family: "PT Sans", sans-serif;
+  color: white;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #135C9F;
+}
+
+.cards-list textarea {
+  box-sizing: border-box;
+  width: 285px;
+  height: 195px;
+  padding: 19px;
+  text-align: center;  
+  border: none;
+  outline: none;
+  resize: none;
+  cursor: pointer;
+}
+
+.textarea-container {
+  position: relative;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.en-textarea,
+.ru-textarea {
+  font-size: 15px;
+  font-family: "PT Sans", sans-serif;
+}
+
+.en-textarea {
+  background-color: #63757B;
+  color: white;
+}
+
+.en-textarea::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+.ru-textarea {
+  background-color: #EFEFEF;
+  color: black;
+}
+
+.ru-textarea::placeholder {
+  color: black;
+  opacity: 0.8;
+}
+
+.textarea-container::before,
+.textarea-container::after {
+  position: absolute;
+  font-family: "PT Sans", sans-serif;
+  cursor: pointer;
+}
+
+.textarea-container::before {
+  content: "EN";
+  bottom: 11px;
+  left: 253px;
+  color: white;
+  z-index: 10;
+}
+
+.textarea-container::after {
+  content: "RU";
+  bottom: 11px;
+  right: 11px;
+  color: #393F71;
+}
+
+.modal-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+  top: 20vh;
+  left: 35vw;
+  height: 40vh;
+  width: 30vw;
+  background-color: white;
+  z-index: 6;
+}
+
+.modal-window p {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 100px;
+}
+
+.buttons-container button {
+  box-sizing: border-box;
+  height: 40px;
+  width: 150px;
+  border: 1px solid black;
+  outline: none;
+  cursor: pointer;
+}
+
+.blocker {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 5;
 }

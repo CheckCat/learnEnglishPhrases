@@ -3,6 +3,6 @@ export const ButtonOfEdit = ({editCard, schemaOfNewCard:{en,ru}}) => {
     return(
         <span onClick={({target})=>{
             editCard(newElemObj, +target.parentElement.dataset.index);
-        }}>EDIT</span>
+        }} className="edit-button"></span>
     )
 }

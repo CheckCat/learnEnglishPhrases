@@ -3,16 +3,18 @@ import { ButtonOfEdit } from "./ButtonOfEdit";
 
 export const Card = ({
   editCard, 
-  deleteCard, 
   schemaOfNewCard, 
   isEditingMode, 
   value, 
   index, 
-  toFlipCard}) => (
+  toFlipCard,
+  showAllCards,
+  showOrHideModalWindow }) => (
 
-  <li data-index={index} onClick={toFlipCard} className="cards-list__card">
+  <li data-index={index} onClick={(ev)=>{showAllCards(); toFlipCard(ev)}} className="cards-list__card">
+    <span style={{position: 'absolute', top: -1000}}>{index+1}</span>
     {value}
-    {isEditingMode && <ButtonOfDelete deleteCard={deleteCard}/>}
+    {isEditingMode && <ButtonOfDelete showOrHideModalWindow={showOrHideModalWindow} />}
     {isEditingMode && <ButtonOfEdit editCard={editCard} schemaOfNewCard={schemaOfNewCard}/>}
   </li>
 );

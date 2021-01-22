@@ -1,5 +1,6 @@
-export const ButtonOfDelete = ({deleteCard}) => {
+export const ButtonOfDelete = ({showOrHideModalWindow}) => {
     return(
-        <span onClick={({target})=>{deleteCard(+target.parentElement.dataset.index)}}>DELETE</span>
+        <span onClick={({target}) => showOrHideModalWindow(target.parentElement)} className="delete-button">
+        </span>
     )
 }

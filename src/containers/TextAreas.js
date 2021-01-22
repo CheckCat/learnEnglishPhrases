@@ -20,12 +20,12 @@ const TextAreas = ({sendValueToStore}) => {
     })
 
     return(
-        <>
-            <textarea ref={enArea}>
+        <div className="textarea-container">
+            <textarea placeholder="Input the text" ref={enArea} name="en" className="en-textarea">
             </textarea>
-            <textarea ref={ruArea}>
+            <textarea placeholder="Введите текст" ref={ruArea} name="ru" className="ru-textarea">
             </textarea>
-        </>
+        </div>
     )
 }
 

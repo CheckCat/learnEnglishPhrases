@@ -3,7 +3,7 @@ import { toggleMode } from "../redux/actions";
 
 const EditingMode = ({ toggleMode }) => {
     return(
-        <button onClick={toggleMode}>
+        <button onClick={({target})=>{toggleMode(); target.classList.toggle('pressed')}} className="toggle-edit-mode">
             Режим редактирования
         </button>
     )

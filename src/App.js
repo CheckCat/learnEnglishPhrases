@@ -1,12 +1,14 @@
 import CardsList from './containers/CardsList';
 import EditingMode from './containers/EditingMode';
+import { LiveSearch } from './containers/LiveSearch';
 
 export const App = () => {
-  
+
   return (
     <>
-      <EditingMode/>
-      <CardsList/> 
+      <LiveSearch />
+      <EditingMode />
+      <CardsList />
     </>
   );
 }
