@@ -15,9 +15,6 @@
 
     .cards-list {
         margin-top: 40px;
-    }
-
-    .cards-list ul {
         margin-bottom: 60px;
     }
 
@@ -31,6 +28,10 @@
 }
 
 @media (max-width: 1024px) {
+    #root {
+        max-width: 718px;
+    }
+
     .cards-list {
         width: 99.99%;
     }
@@ -48,6 +49,50 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+    #root {
+        max-width: 526px;
+    }
 
+    .cards-list {
+        width: 100%;
+    }
+
+    .cards-list__card {
+        flex: 0 0 100%;
+    }
+
+    .textarea-container::before {
+        left: 232px;
+    }
+}
+
+@media (max-width: 576px) {
+    #root { 
+        max-width: 375px;
+    }
+
+    .textarea-container::before {
+        left: 156px;
+    }
+}
+
+@media (max-width: 425px) {
+    #root {
+        max-width: 325px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .textarea-container::before {
+        left: 131px;
+    }
+}
+
+@media (max-width: 375px) {
+    #root {
+        max-width: 270px;
+    }
+    .textarea-container::before {
+        left: 104px;
+    }
 }

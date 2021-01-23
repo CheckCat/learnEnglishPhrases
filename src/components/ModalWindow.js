@@ -5,12 +5,12 @@ export const ModalWindow = ({ deleteCard, initiator, showOrHideModalWindow }) =>
             <div className="modal-window">
                 <p>Вы уверены, что хотите удалить элемент?</p>
                 <div className="buttons-container">
-                    <button onClick={showOrHideModalWindow}>
+                    <button onClick={() => {document.body.classList.remove('body-disabled'); showOrHideModalWindow()}}>
                         Нет
-            </button>
-                    <button onClick={() => { showOrHideModalWindow(); deleteCard(initiator) }}>
+                    </button>
+                    <button onClick={() => { document.body.classList.remove('body-disabled'); showOrHideModalWindow(); deleteCard(initiator) }}>
                         Да
-            </button>
+                    </button>
                 </div>
             </div>
         </div>
