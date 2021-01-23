@@ -25,8 +25,7 @@ body {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 100px;
-  padding-bottom: 130px;
+  padding: 100px 25px 130px 25px;
 }
 
 .live-search {
@@ -161,7 +160,7 @@ body {
 
 .cards-list textarea {
   box-sizing: border-box;
-  width: 285px;
+  width: 50%;
   height: 195px;
   padding: 19px;
   text-align: center;  
@@ -214,7 +213,7 @@ body {
 .textarea-container::before {
   content: "EN";
   bottom: 11px;
-  left: 253px;
+  left: 227px;
   color: white;
   z-index: 10;
 }
