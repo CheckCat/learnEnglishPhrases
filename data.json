@@ -1,0 +1,49 @@
+{
+  "cards": [
+    {
+      "en": "So cool 1",
+      "ru": "Все круто 1",
+      "isFliped": false
+    },
+    {
+      "en": "So cool 2",
+      "ru": "Все круто 2",
+      "isFliped": false
+    },
+    {
+      "en": "So cool 3",
+      "ru": "Все круто 3",
+      "isFliped": false
+    },
+    {
+      "en": "So cool 4",
+      "ru": "Все круто 4",
+      "isFliped": false
+    },
+    {
+      "en": "So cool 5",
+      "ru": "Все круто 5",
+      "isFliped": false
+    },
+    {
+      "en": "So cool 6",
+      "ru": "Все круто 6",
+      "isFliped": false
+    },
+    {
+      "en": "So cool 7",
+      "ru": "Все круто 7",
+      "isFliped": false
+    },
+    {
+      "en": "So cool 8",
+      "ru": "Все круто 8",
+      "isFliped": false
+    },
+    {
+      "en": "So cool 9",
+      "ru": "Все круто 9",
+      "isFliped": false
+    }
+  ]
+}

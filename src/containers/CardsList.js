@@ -62,11 +62,15 @@ const CardsList = ({
       flipCard(+target.dataset.index);
     }
   }
-  useEffect(() => {
+
+  useEffect(()=>{
+    const cardList = Array.from(document.querySelector('ul').children);
+    if(cardList.find(item=>item.classList.contains('active'))) return false;
     let index = window.innerWidth <= 1024 ? 1 : 2;
     if (window.innerWidth <= 768) index = 0;
-    document.querySelector('ul').children[index].classList.add('active');
-  }, [])
+    cardList.length && cardList[index].classList.add('active');
+  })
+
   return (
     <>
       <div className="cards-list">

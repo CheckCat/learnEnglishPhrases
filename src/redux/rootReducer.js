@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import data from '../data.json';
-import { ADD, EDIT, REMOVE, FLIP, TOGGLE_MODE, SET_NEW_TEXT_VALUE, MODAL_WINDOW_IS_SHOWED } from "./types";
+import { ADD, EDIT, REMOVE, FLIP, TOGGLE_MODE, SET_NEW_TEXT_VALUE, MODAL_WINDOW_IS_SHOWED, INITIAL_DATA } from "./types";
 
-const interactionWithCardsReducer = (state = data, action) => {
+const interactionWithCardsReducer = (state=[], action) => {
     const arr = [...state];
     switch (action.type) {
+        case(INITIAL_DATA):
+            return action.data
         case(ADD):
             if(!action.newElem.ru || !action.newElem.en) return arr;
             if(arr.find(item=> (item.ru===action.newElem.ru) || (item.en===action.newElem.en))) return arr;

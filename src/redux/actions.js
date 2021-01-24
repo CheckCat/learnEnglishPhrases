@@ -1,4 +1,4 @@
-import { ADD, EDIT, REMOVE, FLIP, TOGGLE_MODE, SET_NEW_TEXT_VALUE, MODAL_WINDOW_IS_SHOWED } from './types';
+import { ADD, EDIT, REMOVE, FLIP, TOGGLE_MODE, SET_NEW_TEXT_VALUE, MODAL_WINDOW_IS_SHOWED, INITIAL_DATA } from './types';
 
 export const add = elem => ({
         type: ADD,
@@ -20,6 +20,25 @@ export const flip = index => ({
         type: FLIP,
         indexOfFlipedCard: index
 })
+
+export const fetchDataSuccess = data => ({
+        type: INITIAL_DATA,
+        data
+})
+
+export const fetchData = url => {
+        return (dispatch) => {
+                fetch(url)
+                        .then(response=> {
+                                if(!response.ok) {
+                                    throw new Error(response.statusText);
+                                }
+                                return response;
+                        })
+                        .then(response=>response.json())
+                        .then(data=>dispatch(fetchDataSuccess(data)))
+        }
+}
 
 export const toggleMode = () => ({
         type: TOGGLE_MODE
