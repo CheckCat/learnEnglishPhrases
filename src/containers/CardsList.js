@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Card } from '../components/Card'
-import TextAreas from './TextAreas';
+
 import { add, edit, flip, remove, toggleModalWindowIsShowed } from '../redux/actions';
+
+import { Card } from '../components/Card';
+import TextAreas from './TextAreas';
 import { ButtonOfAdd } from '../components/ButtonOfAdd';
 import { ModalWindow } from '../components/ModalWindow';
-import { SliderArrows } from '../components/SliderArrows'
+import { SliderArrows } from '../components/SliderArrows';
 
 const CardsList = ({
   cardList,
@@ -28,11 +30,11 @@ const CardsList = ({
 
     slider.style.right = index * width + "px";
     const prev = Array.from(slider.children).filter(item => item.classList.contains('active'));
-    prev[0] && prev.forEach(item => item.classList.remove('active'))
+    prev[0] && prev.forEach(item => item.classList.remove('active'));
     target.classList.add('active');
   }
 
-  const moveSliderForArrows = (isForward) => {
+  const moveSliderForArrows = isForward => {
     const slider = document.querySelector('ul');
     const width = slider.children[0].offsetWidth;
     const prev = Array.from(slider.children).find(item => item.classList.contains('active'));
@@ -44,7 +46,7 @@ const CardsList = ({
       return false;
     }
 
-    arrows.forEach(item => item.classList.contains('disabled') && item.classList.remove('disabled'))
+    arrows.forEach(item => item.classList.contains('disabled') && item.classList.remove('disabled'));
     slider.style.right = index * width + 'px';
     prev.classList.remove('active');
     slider.children[index].classList.add('active');
@@ -75,22 +77,29 @@ const CardsList = ({
     <>
       <div className="cards-list">
         <ul style={{ right: 0 }} onClick={moveSlider}>
-          {cardList.map(({ ru, en, isFliped }, index) => <Card
-            key={index}
-            schemaOfNewCard={schemaOfNewCard}
-            editCard={editCard}
-            isEditingMode={isEditingMode}
-            value={isFliped ? ru : en}
-            index={index}
-            toFlipCard={toFlipCard}
-            showAllCards={showAllCards}
-            showOrHideModalWindow={showOrHideModalWindow} />)}
+          {cardList.map(({ ru, en, isFliped }, index) =>
+            <Card
+              key={index}
+              schemaOfNewCard={schemaOfNewCard}
+              editCard={editCard}
+              isEditingMode={isEditingMode}
+              value={isFliped ? ru : en}
+              index={index}
+              toFlipCard={toFlipCard}
+              showAllCards={showAllCards}
+              showOrHideModalWindow={showOrHideModalWindow}
+            />
+          )}
         </ul>
         {isEditingMode && <TextAreas />}
         {isEditingMode && <ButtonOfAdd addCard={addCard} schemaOfNewCard={schemaOfNewCard} />}
         {windowWidth <= 768 && <SliderArrows moveSliderForArrows={moveSliderForArrows} />}
       </div>
-      {isShowed && <ModalWindow deleteCard={deleteCard} initiator={initiator} showOrHideModalWindow={showOrHideModalWindow} />}
+      {isShowed && <ModalWindow
+        deleteCard={deleteCard}
+        initiator={initiator}
+        showOrHideModalWindow={showOrHideModalWindow}
+      />}
     </>
   );
 }
@@ -99,7 +108,7 @@ const mapStateToProps = ({ interactionWithCards, toggleEditingMode, newTextValue
   cardList: interactionWithCards,
   isEditingMode: toggleEditingMode,
   schemaOfNewCard: newTextValue,
-  modalWindowIsShowed: modalWindowIsShowed
+  modalWindowIsShowed
 })
 
 const mapDispatchToProps = {

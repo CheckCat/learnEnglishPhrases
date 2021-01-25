@@ -2,19 +2,21 @@ import { connect } from "react-redux";
 import { toggleMode } from "../redux/actions";
 
 const EditingMode = ({ toggleMode, sendCardListToServer }) => {
-    return(
-        <button onClick={({target})=>{
-            toggleMode();
-            target.classList.contains('pressed') && sendCardListToServer()
-            target.classList.toggle('pressed');
-            }} className="toggle-edit-mode">
-            Режим редактирования
-        </button>
-    )
+
+  return(
+    <button 
+      onClick={({ target })=>{
+        toggleMode();
+        target.classList.contains('pressed') && sendCardListToServer();
+        target.classList.toggle('pressed');
+      }} className="toggle-edit-mode">
+      Режим редактирования
+    </button>
+  )
 }
 
 const mapDispatchToProps = {
-    toggleMode: toggleMode
+  toggleMode
 }
 
-export default connect(() => ({}), mapDispatchToProps)(EditingMode);
+export default connect(() => ({ }), mapDispatchToProps)(EditingMode);

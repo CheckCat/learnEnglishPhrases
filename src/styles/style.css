@@ -84,7 +84,8 @@ body.disabled {
   margin-top: 120px;
 }
 
-.left-arrow, .right-arrow {
+.left-arrow,
+.right-arrow {
   position: absolute;
   width: 25px;
   height: 25px;
@@ -120,13 +121,13 @@ body.disabled {
   justify-content: flex-start;
   position: relative;
   flex-wrap: nowrap;
-  
+
   font-size: 25px;
   font-family: sans-serif;
   transition: all 0.7s ease;
 }
 
-.cards-list__card{
+.cards-list__card {
   position: relative;
   box-sizing: border-box;
   flex: 0 0 20%;
@@ -144,12 +145,13 @@ body.disabled {
   border-left: none;
 }
 
-.cards-list__card:nth-child(2n){
+.cards-list__card:nth-child(2n) {
   background-color: #79DEC6;
   color: white;
 }
 
-.pressed+.cards-list .cards-list__card, .cards-list__card.active {
+.pressed+.cards-list .cards-list__card,
+.cards-list__card.active {
   cursor: default;
 }
 
@@ -203,7 +205,7 @@ body.disabled {
   width: 50%;
   height: 195px;
   padding: 19px;
-  text-align: center;  
+  text-align: center;
   border: none;
   outline: none;
   resize: none;

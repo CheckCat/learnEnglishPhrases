@@ -68,7 +68,7 @@
 }
 
 @media (max-width: 576px) {
-    #root { 
+    #root {
         max-width: 375px;
     }
 
@@ -83,6 +83,7 @@
         padding-left: 15px;
         padding-right: 15px;
     }
+
     .textarea-container::before {
         left: 131px;
     }
@@ -92,6 +93,7 @@
     #root {
         max-width: 270px;
     }
+
     .textarea-container::before {
         left: 104px;
     }

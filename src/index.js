@@ -3,15 +3,15 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
-import './styles/style.css';
-import './styles/adaptive.css';
 
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 import { Provider } from "react-redux";
+import thunk from 'redux-thunk';
 
 import App from './App';
-import { rootReducer } from './redux/rootReducer';
+import { rootReducer } from './redux/reducers/rootReducer';
+import './styles/style.css';
+import './styles/adaptive.css';
 
 const store = createStore(
   rootReducer,
