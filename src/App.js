@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import CardsList from './containers/CardsList';
 import EditingMode from './containers/EditingMode';
-import { LiveSearch } from './containers/LiveSearch';
+import { LiveSearch } from './components/LiveSearch';
 
 import { fetchData } from './redux/actions';
 
